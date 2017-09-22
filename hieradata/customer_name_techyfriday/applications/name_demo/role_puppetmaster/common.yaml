@@ -1,0 +1,5 @@
+---
+# Puppet master settings
+techyfriday_profile::demo::puppetmaster::puppetdb_listen_address:   'puppet.techyfriday.nl'
+techyfriday_profile::demo::puppetmaster::puppetboard_vhost_name:    'puppet.techyfriday.nl'
+...
