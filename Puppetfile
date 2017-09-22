@@ -34,3 +34,7 @@ mod 'techyfriday_profile',
 ################################################################################
 # Modules
 ################################################################################
+
+mod 'nodeyaml',
+  :git    => 'git@github.com:itshosted/puppet_nodeyaml.git',
+  :branch => 'master'
