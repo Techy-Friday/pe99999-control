@@ -19,14 +19,14 @@ mod 'stankevich-python'
 mod 'stahnma-epel'
 
 ################################################################################
-# DEMO role and profiles
+# Customer role and profiles
 ################################################################################
 
-mod 'demo_role',
-  :git    => 'git@github.com:Techy-Friday/techyfriday.git',
+mod 'techyfriday_role',
+  :git    => 'git@github.com:Techy-Friday/techyfriday_role.git',
   :branch => 'master'
 
-mod 'demo_profile',
+mod 'techyfriday_profile',
   :git    => 'git@github.com:Techy-Friday/techyfriday_profile.git',
   :branch => 'master'
 
