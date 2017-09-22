@@ -1,3 +1,2 @@
-# pe99999-control
-
-Puppet control repo
+# techyfriday_control
+Puppet control repo for techyfriday

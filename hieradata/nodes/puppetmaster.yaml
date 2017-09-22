@@ -1,8 +1,0 @@
----
-customer_name:          demo
-customer_environment:   production
-application_name:       techyfriday
-application_role:       puppetmaster
-application_instance:   1
-datacenter:             amsterdam
-...
