@@ -1,0 +1,86 @@
+---
+version: 5
+defaults:
+  datadir: hieradata
+  data_hash: yaml_data
+hierarchy:
+  - name: "Node specific (usefull for initial deployment of external facts)"
+    path: "nodes/%{trusted.certname}.yaml"
+  - name: "Node specific by customer"
+    path: "customer_name_%{facts.customer_name}/nodes/%{trusted.certname}.yaml"
+  - name: "Node specific by customer for OS patching"
+    path: "customer_name_%{facts.customer_name}/patching_nodes/%{trusted.certname}.yaml"
+# -----------------------------------------------------------------------------
+# Application level
+# -----------------------------------------------------------------------------
+  - name: "Application chain specific (by customer_environment, application name, role and instance)"
+    path: "customer_name_%{facts.customer_name}/applications/%{facts.customer_environment}/name_%{facts.application_name}/role_%{facts.application_role}/instance_%{facts.application_instance}.yaml"
+  - name: "Application chain specific (by customer_environment, application name and role)"
+    path: "customer_name_%{facts.customer_name}/applications/%{facts.customer_environment}/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
+  - name: "Application chain specific (by customer, customer_environment and application name)"
+    path: "customer_name_%{facts.customer_name}/applications/%{facts.customer_environment}/name_%{facts.application_name}/common.yaml"
+  - name: "Application role generic by customer"
+    path: "customer_name_%{facts.customer_name}/applications/%{facts.customer_environment}/role_%{facts.application_role}.yaml"
+  - name: "Application chain specific (by customer, application name, role and instance)"
+    path: "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/instance_%{facts.application_instance}.yaml"
+  - name: "Application chain specific (by customer, application name and role)"
+    path: "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
+  - name: "Application chain specific (by customer and application name)"
+    path: "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/common.yaml"
+  - name: "Application role generic"
+    path: "customer_name_%{facts.customer_name}/applications/role_%{facts.application_role}.yaml"
+  - name: "Application chain specific (by customer, environment, application name, role and instance)"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/applications/name_%{facts.application_name}/role_%{facts.application_role}/instance_%{facts.application_instance}.yaml"
+  - name: "Application chain specific (by customer, application, environment, application name and role)"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/applications/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
+  - name: "Application chain specific (by customer_name, customer_environment and application name)"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/applications/name_%{facts.application_name}/common.yaml"
+  - name: "Application role generic per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/applications/role_%{facts.application_role}.yaml"
+# -----------------------------------------------------------------------------
+# Infrastructure/OS level
+# -----------------------------------------------------------------------------
+  - name: "OS major release specific by customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
+  - name: "OS generic per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/os/%{facts.operatingsystem}/common.yaml"
+  - name: "OSfamily per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/osfamily/%{facts.osfamily}.yaml"
+  - name: "Virtual true or false per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/virtual/%{facts.virtual}.yaml"
+  - name: "Location per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/location/%{facts.location}.yaml"
+  - name: "Common data per customer and environment"
+    path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/common.yaml"
+# Per customer (without environment)
+  - name: "OS major release specific by customer"
+    path: "customer_name_%{facts.customer_name}/os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
+  - name: "OS generic per customer"
+    path: "customer_name_%{facts.customer_name}/os/%{facts.operatingsystem}/common.yaml"
+  - name: "OSfamily per customer"
+    path: "customer_name_%{facts.customer_name}/osfamily/%{facts.osfamily}.yaml"
+  - name: "Virtual true or false per customer"
+    path: "customer_name_%{facts.customer_name}/virtual/%{facts.virtual}.yaml"
+  - name: "Location per customer"
+    path: "customer_name_%{facts.customer_name}/location/%{facts.location}.yaml"
+  - name: "Common data per customer"
+    path: "customer_name_%{facts.customer_name}/common.yaml"
+# Customer environment
+  - name: "Customer environment based settings OS major release specific"
+    path: "customer_environment/%{facts.customer_environment}/%{facts.operatingsystemmajrelease}.yaml"
+  - name: "Customer environment based settings"
+    path: "customer_environment/%{facts.customer_environment}/common.yaml"
+# Common levels (Try not to include classe shere since this will also be picked up by the pupeptmaster)
+  - name: "OS major release generic"
+    path: "os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
+  - name: "OS generic"
+    path: "os/%{facts.operatingsystem}/common.yaml"
+  - name: "OSfamily generic"
+    path: "osfamily/%{facts.osfamily}.yaml"
+  - name: "virtual true or false generic"
+    path: "virtual/%{facts.virtual}.yaml"
+  - name: "Per Location"
+    path: "location/%{facts.location}.yaml"
+  - name: "common data"
+    path: "common.yaml"
+...
