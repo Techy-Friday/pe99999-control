@@ -2,7 +2,7 @@
 nodeyaml::customer_name:          techyfriday
 nodeyaml::customer_environment:   production
 nodeyaml::application_name:       demo
-nodeyaml::application_role:       quest1
+nodeyaml::application_role:       quest2
 nodeyaml::application_instance:   1
 nodeyaml::datacenter:             amsterdam
 ...
