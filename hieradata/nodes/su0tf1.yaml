@@ -7,5 +7,6 @@ nodeyaml::application_instance:   1
 nodeyaml::datacenter:             amsterdam
 
 techyfriday_profile::demo::quest2::directory: 'storage'
+techyfriday_profile::demo::quest2::file_parameter: 'een extra setting?'
 
 ...
