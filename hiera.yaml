@@ -64,7 +64,7 @@ hierarchy:
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/virtual/%{facts.virtual}.yaml"
   - name: "Location per customer and environment"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/location/%{facts.location}.yaml"
-  - name: "Common data per customer and environment"
+  - name: "Common data per customer and environment certname"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/%{trusted.certname}.yaml"
   - name: "Common data per customer and environment"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/common.yaml"
