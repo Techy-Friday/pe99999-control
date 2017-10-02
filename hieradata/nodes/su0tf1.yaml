@@ -5,4 +5,7 @@ nodeyaml::application_name:       demo
 nodeyaml::application_role:       quest2
 nodeyaml::application_instance:   1
 nodeyaml::datacenter:             amsterdam
+
+techyfriday_profile::demo::quest2::directory: 'storage'
+
 ...
