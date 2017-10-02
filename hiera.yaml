@@ -54,7 +54,7 @@ hierarchy:
 # -----------------------------------------------------------------------------
   - name: "OS major release specific by customer and environment"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
-  - name: "OS generic per customer and environment"
+  - name: "OS generic per customer and environment certname"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/os/%{facts.operatingsystem}/%{trusted.certname}.yaml"
   - name: "OS generic per customer and environment"
     path: "customer_name_%{facts.customer_name}/customer_environment_%{facts.customer_environment}/os/%{facts.operatingsystem}/common.yaml"
